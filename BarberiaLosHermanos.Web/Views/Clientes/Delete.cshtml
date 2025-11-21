@@ -1,0 +1,46 @@
+﻿@model BarberiaLosHermanos.Dominio.Cliente
+
+@{
+    ViewData["Title"] = "Eliminar Cliente";
+}
+
+<div class="container py-4">
+    <h1 class="display-4 text-danger mb-4">Eliminar Cliente</h1>
+
+    <div class="alert alert-warning" role="alert">
+        <strong>¡ADVERTENCIA!</strong> Está a punto de eliminar al cliente permanentemente.
+        Esta acción no se puede deshacer.
+    </div>
+
+    <div class="card shadow p-4">
+        <h4 class="card-title mb-3">¿Está seguro de que desea eliminar a este cliente?</h4>
+        <hr />
+
+        {{-- Muestra los detalles del cliente a eliminar --}}
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nombre)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Telefono)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Telefono)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Correo)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Correo)</dd>
+        </dl>
+
+        {{-- Formulario para enviar la solicitud de eliminación al controlador --}}
+        <form asp-action="Delete">
+            {{-- Campo oculto: Esencial para enviar el ID al controlador --}}
+            <input type="hidden" asp-for="Id" />
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                <button type="submit" class="btn btn-danger btn-lg">
+                    <i class="fas fa-trash-alt me-2"></i> Confirmar Eliminación
+                </button>
+                <a asp-action="Index" class="btn btn-outline-secondary btn-lg">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+
+</div>

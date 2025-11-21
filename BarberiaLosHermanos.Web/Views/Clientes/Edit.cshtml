@@ -1,0 +1,69 @@
+﻿@model BarberiaLosHermanos.Dominio.Cliente
+@* Modelo fuertemente tipado: Cliente *@
+
+@{
+    ViewData["Title"] = "Editar Cliente";   @* Título de la página *@
+}
+
+<div class="container py-4">
+    <h1 class="display-4 mb-4">Editar Cliente: @Model.Nombre</h1> @* Encabezado con el nombre actual *@
+
+    <div class="card shadow p-4">
+        @* Formulario que envía los datos a la acción POST Edit *@
+        <form asp-action="Edit" method="post">
+
+            @* Id oculto para saber qué registro modificar *@
+            <input type="hidden" asp-for="Id" />
+
+            @* Resumen de errores de validación del modelo *@
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+            <div class="row">
+                @* Campo Nombre *@
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Nombre" class="form-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                @* Campo Teléfono *@
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Telefono" class="form-label"></label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                @* Campo Correo *@
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Correo" class="form-label"></label>
+                    <input asp-for="Correo" class="form-control" />
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+
+                @* Campo Cédula *@
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Cedula" class="form-label"></label>
+                    <input asp-for="Cedula" class="form-control" />
+                    <span asp-validation-for="Cedula" class="text-danger"></span>
+                </div>
+            </div>
+
+            @* Botones de acción *@
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-save me-2"></i> Guardar Cambios
+                </button>
+                <a asp-action="Index" class="btn btn-outline-secondary btn-lg">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @* Habilita validaciones del lado del cliente *@
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,47 @@
+﻿@model BarberiaLosHermanos.Dominio.Cita
+
+@{
+    ViewData["Title"] = "Editar Cita";
+}
+
+<div class="container py-4">
+    <h1 class="display-4 mb-4">Editar cita</h1>
+
+    <div class="card shadow p-4">
+        <form asp-action="Edit" method="post">
+            @* ID oculto *@
+            <input type="hidden" asp-for="Id" />
+
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+            <div class="mb-3">
+                <label asp-for="ClienteId" class="form-label">Cliente</label>
+                <select asp-for="ClienteId" asp-items="ViewBag.ClienteId" class="form-select"></select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ServicioId" class="form-label">Servicio</label>
+                <select asp-for="ServicioId" asp-items="ViewBag.ServicioId" class="form-select"></select>
+                <span asp-validation-for="ServicioId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FechaHora" class="form-label">Fecha y hora</label>
+                <input asp-for="FechaHora" class="form-control" type="datetime-local" />
+                <span asp-validation-for="FechaHora" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

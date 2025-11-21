@@ -1,0 +1,30 @@
+﻿@model BarberiaLosHermanos.Dominio.Cita
+
+@{
+    ViewData["Title"] = "Detalles de Cita";
+}
+
+<div class="container py-4">
+    <h1 class="display-4 mb-4">Detalles de la cita</h1>
+
+    <div class="card shadow p-4">
+        <dl class="row">
+            <dt class="col-sm-3">Fecha y hora</dt>
+            <dd class="col-sm-9">@Model.FechaHora</dd>
+
+            <dt class="col-sm-3">Cliente</dt>
+            <dd class="col-sm-9">@Model.Cliente?.Nombre</dd>
+
+            <dt class="col-sm-3">Servicio</dt>
+            <dd class="col-sm-9">@Model.Servicio?.Nombre</dd>
+
+            <dt class="col-sm-3">Precio</dt>
+            <dd class="col-sm-9">₡@Model.Servicio?.Precio.ToString("N2")</dd>
+        </dl>
+
+        <div class="d-flex justify-content-end gap-2 mt-3">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Volver a la lista</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* ===== Tema Barbería Los Hermanos ===== */
+
+/* Fondo general suave */
+body {
+    background-color: #f3f4f6; /* gris muy claro */
+}
+
+/* Navbar estilo barbería (azul muy oscuro + línea roja) */
+.navbar {
+    background: #111827; /* azul casi negro */
+    border-bottom: 3px solid #e11d48; /* rojo barbería */
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* Colores del texto en navbar oscura */
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-brand {
+    color: #f9fafb;
+}
+
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-brand:hover {
+        color: #e5e7eb;
+    }
+
+/* Botón principal: rojo barbería */
+.btn-primary {
+    background-color: #e11d48;
+    border-color: #e11d48;
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #be123c;
+        border-color: #be123c;
+    }
+
+/* Botón claro con borde rojo */
+.btn-outline-secondary {
+    border-color: #e11d48;
+    color: #111827;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: #e11d48;
+        color: #f9fafb;
+    }
+
+/* Botón outline oscuro */
+.btn-outline-dark {
+    border-color: #111827;
+    color: #111827;
+}
+
+    .btn-outline-dark:hover {
+        background-color: #111827;
+        color: #f9fafb;
+    }
+
+/* Tarjeta oscura del hero con sombra fuerte */
+.bg-dark {
+    background-color: #111827 !important;
+}
+
+    .bg-dark.shadow-lg {
+        box-shadow: 0 25px 50px rgba(15, 23, 42, 0.6);
+    }
+
+/* Tarjetas con bordes más suaves */
+.card {
+    border-radius: 1rem;
+}
+
+/* Links generales con azul que combine */
+a {
+    color: #1d4ed8;
+}
+
+    a:hover {
+        color: #1e3a8a;
+    }
+
+
+.navbar-logo {
+    width: 105px; /* antes nada; así lo hacemos pequeñito */
+    height: 105px;
+    object-fit: cover; /* recorta sin deformar */
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}

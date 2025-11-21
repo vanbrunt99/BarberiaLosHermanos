@@ -1,0 +1,33 @@
+﻿@model BarberiaLosHermanos.Dominio.Cita
+
+@{
+    ViewData["Title"] = "Eliminar Cita";
+}
+
+<div class="container py-4">
+    <h1 class="display-4 mb-4 text-danger">Eliminar cita</h1>
+
+    <div class="card shadow p-4">
+        <p>¿Seguro que desea eliminar esta cita?</p>
+
+        <dl class="row">
+            <dt class="col-sm-3">Fecha y hora</dt>
+            <dd class="col-sm-9">@Model.FechaHora</dd>
+
+            <dt class="col-sm-3">Cliente</dt>
+            <dd class="col-sm-9">@Model.Cliente?.Nombre</dd>
+
+            <dt class="col-sm-3">Servicio</dt>
+            <dd class="col-sm-9">@Model.Servicio?.Nombre</dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
